@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class TopicModel {
+public class Topic {
 
     @Id
     String id;
@@ -12,12 +12,12 @@ public class TopicModel {
     String description;
 
 
-    public TopicModel(String id, String name, String description) {
+    public Topic(String id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
     }
-    public TopicModel(){};
+    public Topic(){};
     public String getId() {
         return id;
     }

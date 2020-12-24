@@ -18,25 +18,24 @@ public class TopicsController {
 
     //Get All
     @GetMapping("/topics")
-    public List<TopicModel> getAllTopics(){
+    public List<Topic> getAllTopics(){
         return topicsService.getAllTopics();
     }
 
     //Get One
     @GetMapping("/topics/{id}")
-    public TopicModel getOneTopic(@PathVariable String id){
+    public Topic getOneTopic(@PathVariable String id){
          return topicsService.getOneTopic(id);
     }
 
-
     //Add topic
     @PostMapping("/topics")
-    public void addTopic(@RequestBody TopicModel topic){
+    public void addTopic(@RequestBody Topic topic){
         topicsService.addTopic(topic);
     }
     //Update Topic
     @PutMapping("/topics/update")
-    public void updateTopic(@RequestBody TopicModel topic){
+    public void updateTopic(@RequestBody Topic topic){
         topicsService.updateTopic(topic);
     }
 

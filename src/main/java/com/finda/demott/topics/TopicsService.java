@@ -4,33 +4,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class TopicsService {
     public TopicsService(){}
     @Autowired
     TopicRepository repository;
-   // List<TopicModel> topicsList;
-    public ArrayList<TopicModel> getAllTopics(){
+   // List<Topic> topicsList;
+    public ArrayList<Topic> getAllTopics(){
 
         //return list of topics
-        ArrayList<TopicModel> arrayList = new ArrayList<>();
+        ArrayList<Topic> arrayList = new ArrayList<>();
         repository.findAll().forEach(topic->arrayList.add(topic));
         return arrayList;
     }
 
-    public TopicModel getOneTopic(String id){
+    public Topic getOneTopic(String id){
 
         return  repository.findById(id).get();
     }
-    public void addTopic(TopicModel topic){
+    public void addTopic(Topic topic){
         repository.save(topic);
     }
 
-    public void updateTopic(TopicModel topic){
+    public void updateTopic(Topic topic){
         repository.save(topic);
 
     }

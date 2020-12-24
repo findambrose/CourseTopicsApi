@@ -1,7 +1,9 @@
 package com.finda.demott.courses;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import com.finda.demott.topics.Topic;
+import com.sun.xml.bind.v2.TODO;
+
+import javax.persistence.*;
 
 @Entity
 public class CourseModel {
@@ -10,18 +12,23 @@ public class CourseModel {
     String id;
     String name;
     String description;
-    String topic; // foreign key from topics
 
+    @ManyToOne(cascade = CascadeType.PERSIST) // Entity relationship to topic
+     private Topic topic;
 
-    public CourseModel(String id, String name, String description, String topic) {
+    public CourseModel(String id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.topic = topic;
+        this.topic = new Topic();
     }
     public  CourseModel(){};
+
     public String getId() {
         return id;
+    }
+    public void setTopic (Topic topic){
+        this.topic = topic;
     }
 
     public String getName() {
@@ -32,7 +39,7 @@ public class CourseModel {
         return description;
     }
 
-    public String getTopic(){
+    public Topic getTopic(){
         return  topic;
     }
 }
